@@ -225,6 +225,7 @@ class Connection extends Emittery {
      */
     if (msp.isPingPacket(packet)) {
       this.sendPacket(msp.pongPacket())
+      this._processEvent(packet)
       return
     }
 
