@@ -301,7 +301,7 @@ class Channel {
     return {
       socket,
       /**
-       * Broadcast to everyone
+       * Broadcast to everyone except the current socket.
        *
        * @method broadcast
        * @alias broadcastToAll
@@ -312,11 +312,12 @@ class Channel {
        * @return {void}
        */
       broadcast (event, data) {
-        this.socket.broadcastToAll(event, data)
+        this.socket.broadcast(event, data)
       },
 
       /**
-       * Broadcast to everyone
+       * Broadcast to everyone who has joined the
+       * current topic.
        *
        * @method broadcastToAll
        *
